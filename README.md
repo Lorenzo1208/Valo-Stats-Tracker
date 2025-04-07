@@ -1,50 +1,83 @@
 # Valorant Stats Analyzer
 
-**Valorant Stats Analyzer** is a web-based application designed to help players analyze their personal performance in Valorant using Riot's official APIs and RSO (Riot Sign-On) authentication.
+**Valorant Stats Analyzer** is a community-focused web application that empowers Valorant players to analyze, understand, and improve their gameplay using Riot's official APIs and RSO (Riot Sign-On) authentication.
 
-The app will allow users to securely log in with their Riot account and visualize detailed statistics from their recent matches. The goal is to help players track their progress, identify patterns in their gameplay, and improve over time.
-
----
-
-## 🔍 Features (Planned)
-
-- 📊 **Match History Viewer** – Display full details of recent matches (agents, map, score, kills/deaths, etc.)
-- 💀 **Death Heatmaps** – See where you tend to die on each map
-- 🧠 **Performance Insights** – Detect which agents you perform best with
-- 📈 **Trend Analysis** – Track evolution of key stats over time
-- 🗂️ **Secure Authentication** – Use Riot's RSO OAuth2 to protect player data and ensure privacy
+Our mission is to deliver **advanced insights**, **interactive visualizations**, and **AI-powered suggestions** through a clean, secure interface. This tool is designed to be **fully opt-in**, in compliance with Riot’s Developer Policy.
 
 ---
 
-## 🔐 How it works
+## 🔥 What Makes This App Unique?
 
-1. Players authenticate via Riot's RSO (OAuth2)
-2. The app retrieves the player's PUUID securely
-3. Using `VAL-MATCH-V1` and related endpoints, we fetch match history
-4. Data is visualized in charts, tables, and on interactive maps
+Unlike existing trackers, our app focuses on **personalized, high-level insights** that go beyond basic K/D or agent usage. We aim to **transform data into coaching**, thanks to a mix of AI, UX, and statistical analysis.
+
+### ✅ Innovative Features (Planned)
+
+- 🔥 **Dynamic Heatmaps** – Visualize deaths, kills, or assists per map, agent, and round over time  
+- 📊 **Behavioral Trend Tracking** – Analyze how your playstyle evolves across patches or roles  
+- 🧠 **AI-powered Coaching** – Get custom suggestions for agent pick, map approach, or weapon usage  
+- 📌 **Clutch Review Assistant** – Automatically extract rounds where you were the last alive or defused/planted  
+- 📍 **Map-Specific Strategy Insights** – Identify your strongest and weakest bomb sites or map zones  
+- 📈 **Performance Consistency Index** – See how stable your KDA, win rate, and HS% are across time  
+- 🧪 **Experimental Agent Switch Simulation** – Estimate how a role/agent change could impact your results  
+- 🕵️‍♂️ **Mirror Me Mode** – Compare your stats with similar players to detect growth potential  
+- ⏱️ **Time-of-Day Impact** – Find your peak performance window based on game time  
+- 🛠️ **Custom Training Targets** – Automatically suggest drills based on weaknesses (e.g., headshot % with rifles)
 
 ---
 
-## 🚧 Project Status
+## 🔐 How it Works
 
-- ✅ GitHub Pages demo site published
-- ⚙️ Currently building the backend logic
-- 📌 Match parsing and data visualization in progress
-- 📍 OAuth2 integration with Riot RSO planned for public testing
+1. Players securely authenticate via Riot's RSO (OAuth2 flow)
+2. The app retrieves their PUUID and match history using `VAL-MATCH-V1`
+3. Data is processed and enhanced using custom analytics
+4. Players get visual dashboards, graphs, maps, and AI recommendations
+
+All data is:
+- 🔒 Stored locally (client-side or backend with encryption)
+- 🔐 Displayed only to the authenticated user
+- 📘 Fully compliant with Riot’s opt-in policy
+
+---
+
+## 🚀 Project Status
+
+- ✅ GitHub Pages front-end prototype deployed
+- ⚙️ Backend parsing & secure API integration in progress
+- 🧪 AI models in R&D for performance prediction and player segmentation
+- 🔐 RSO authentication flow planned and documented
 
 ---
 
 ## 🖼️ Prototype Preview
 
-### Application Architecture
+### 🧱 Application Architecture
 ![Application Architecture](Archi.png)
 
-### Dashboard Mockup
+### 📊 Dashboard Mockup
 ![Dashboard Mockup](Mockup.png)
+
+---
+
+## 📦 Tech Stack
+
+- Frontend: **HTML/CSS/JS**, fully responsive layout
+- Backend: (Planned) **Node.js + Express + MongoDB**
+- Data processing: (Planned) **Python + Pandas + scikit-learn**
+- API Integration: **Riot Games Developer API (VAL-MATCH-V1, RSO)**
 
 ---
 
 ## ⚠️ Disclaimer
 
-This project is under development and not affiliated with Riot Games.  
-All data is retrieved via the official Riot Games API under their developer terms.
+This is a **non-commercial, in-development** project made for educational and community purposes.  
+It is **not affiliated with Riot Games**. All data is accessed through the official API, with player consent via RSO login.
+
+> Riot Games, Valorant, and all related trademarks are property of Riot Games, Inc.
+
+---
+
+## 📫 Contact & Feedback
+
+If you're a Riot developer reviewing this, feel free to reach out via the Developer Portal message section.  
+We are open to suggestions and collaborations to improve the player experience.
+
