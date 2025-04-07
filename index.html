@@ -22,6 +22,9 @@
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     .logo {
@@ -36,12 +39,103 @@
       color: #fff;
     }
 
+    .hero-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      color: #f94f6d;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(249, 79, 109, 0.3);
+    }
+
+    .hero-description {
+      color: #cccccc;
+      font-size: 1.3rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      color: #f94f6d;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+      }
+      40% {
+        transform: translateY(-20px) translateX(-50%);
+      }
+      60% {
+        transform: translateY(-10px) translateX(-50%);
+      }
+    }
+
+    .features-section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .features-title {
+      color: #f94f6d;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .features-list {
+      list-style-type: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .features-list li {
+      background-color: #1a1a1d;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(255, 0, 76, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .features-list li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(255, 0, 76, 0.2);
+    }
+
+    .features-list li strong {
+      color: #f94f6d;
+    }
+
     .login-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 60px 20px;
+      padding: 40px 20px;
       max-width: 800px;
       margin: 40px auto;
       background-color: #1a1a1d;
@@ -51,19 +145,19 @@
 
     .login-header h2 {
       color: #f94f6d;
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-bottom: 20px;
     }
 
     .login-description {
       color: #cccccc;
       line-height: 1.6;
-      text-align: left;
+      text-align: center;
       font-size: 1.1rem;
+      margin-bottom: 30px;
     }
 
     .riot-login-button {
-      margin-top: 30px;
       background-color: #f94f6d;
       color: white;
       border: none;
@@ -127,9 +221,30 @@
       color: #888;
     }
 
+    .legal-disclaimer {
+      color: #999;
+      font-size: 0.9rem;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+    }
+
     @media (max-width: 768px) {
       .showcase-row {
         grid-template-columns: 1fr;
+      }
+      
+      .features-list {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-title {
+        font-size: 2.3rem;
+      }
+      
+      .hero-description {
+        font-size: 1.1rem;
       }
     }
   </style>
@@ -141,42 +256,37 @@
     <div class="user-menu">USERNAME</div>
   </div>
 
-  <!-- Login Section -->
-  <div class="login-container">
-    <div class="login-header">
-      <h2>Welcome to Valorant Stats Analyzer</h2>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Welcome to Valorant Stats Analyzer</h1>
+      <p class="hero-description">A public web-based app designed to help players deeply understand their performance using Riot's official API and RSO authentication.</p>
+      <button class="riot-login-button">Log in with Riot</button>
     </div>
-    <div class="login-description">
-      <p>
-        <strong>Valorant Stats Analyzer</strong> is a public web-based app designed to help players deeply understand their performance using Riot’s official API and RSO authentication.
-      </p>
-      <ul>
-        <li>🔥 <strong>Dynamic Heatmaps</strong> – Visualize death, kill, or assist locations per agent, map and round over time</li>
+    <div class="scroll-indicator" onclick="document.querySelector('.features-section').scrollIntoView({behavior: 'smooth'})">↓</div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section" id="features">
+    <h2 class="features-title">Powerful Analytics Features</h2>
+    <ul class="features-list">
+      <li>🔥 <strong>Dynamic Heatmaps</strong> – Visualize death, kill, or assist locations per agent, map and round over time</li>
       
-        <li>📊 <strong>Behavioral Trend Tracking</strong> – Track how your playstyle evolves across patches (e.g. aggressive entry vs. support play)</li>
+      <li>📊 <strong>Behavioral Trend Tracking</strong> – Track how your playstyle evolves across patches</li>
       
-        <li>🧠 <strong>AI-powered Coaching</strong> – Suggest positioning, agent roles or weapons based on your patterns (e.g. “You win 25% more duels on Haven with Phantom over Vandal”)</li>
+      <li>🧠 <strong>AI-powered Coaching</strong> – Suggest positioning, agent roles or weapons based on your patterns</li>
       
-        <li>📌 <strong>Clutch Review Assistant</strong> – Automatically extract and highlight rounds where you were last alive, planted the spike, or were in a 1vX situation</li>
+      <li>📌 <strong>Clutch Review Assistant</strong> – Automatically extract and highlight rounds where you were last alive</li>
       
-        <li>📍 <strong>Map-Specific Strategy Insights</strong> – See which bomb site you win/lose most fights on and where to improve entry success rate</li>
+      <li>📍 <strong>Map-Specific Strategy Insights</strong> – See which bomb site you win/lose most fights on</li>
       
-        <li>📈 <strong>Performance Consistency Index</strong> – Track your reliability across matches (e.g. rating streaks, variance in kill participation)</li>
+      <li>📈 <strong>Performance Consistency Index</strong> – Track your reliability across matches</li>
       
-        <li>🧪 <strong>Experimental Agent Switch Analysis</strong> – Use your stats to simulate how switching main agents would have affected your results</li>
+      <li>🧪 <strong>Experimental Agent Switch Analysis</strong> – Simulate how switching main agents would affect your results</li>
       
-        <li>🕵️‍♂️ <strong>Mirror Me Mode</strong> – Compare your stats with players of a similar rank and role to detect skill gaps</li>
-      
-        <li>⏱️ <strong>Time-of-Day Impact</strong> – Discover if your win rate changes based on when you play (night owl vs. morning ace)</li>
-      
-        <li>🛠️ <strong>Custom Training Targets</strong> – Automatically generate personalized drills based on your weak points (e.g. headshot accuracy with Vandal on long range fights)</li>
-</ul>
-      <p>
-        Players must log in with their Riot account via RSO. Once logged in, your match history and advanced performance breakdown will be available in an interactive dashboard.
-      </p>
-    </div>
-    <button class="riot-login-button">Log in with Riot</button>
-  </div>
+      <li>🕵️‍♂️ <strong>Mirror Me Mode</strong> – Compare your stats with players of a similar rank and role</li>
+    </ul>
+  </section>
 
   <!-- Showcase -->
   <div class="showcase-container">
@@ -198,12 +308,25 @@
     </div>
   </div>
 
+  <!-- Login Section - Full Details -->
+  <div class="login-container">
+    <div class="login-header">
+      <h2>Get Started Now</h2>
+    </div>
+    <div class="login-description">
+      <p>
+        Players must log in with their Riot account via RSO. Once logged in, your match history and advanced performance breakdown will be available in an interactive dashboard.
+      </p>
+    </div>
+    <button class="riot-login-button">Log in with Riot</button>
+  </div>
+
   <!-- Legal Disclaimer -->
-  <section style="color: #999; font-size: 0.9rem; max-width: 900px; margin: auto; padding: 20px;">
+  <section class="legal-disclaimer">
     <p>
       This project is not affiliated with Riot Games. All stats shown are only retrieved after explicit user opt-in via Riot Sign-On (RSO).
       <br><br>
-      The app follows Riot’s Developer Policy and respects all privacy, data usage, and authentication guidelines.
+      The app follows Riot's Developer Policy and respects all privacy, data usage, and authentication guidelines.
     </p>
   </section>
 
@@ -212,12 +335,24 @@
     &copy; 2025 - Valorant Stats Analyzer | Not affiliated with Riot Games
   </footer>
 
-  <!-- Login Simulation Script -->
+  <!-- Scripts -->
   <script>
-    document.querySelector('.riot-login-button').addEventListener('click', function () {
-      alert('Redirecting to Riot RSO login (demo)...');
-      document.querySelector('.login-container').style.display = 'none';
-      document.querySelector('.user-menu').style.display = 'block';
+    // Login Simulation
+    document.querySelectorAll('.riot-login-button').forEach(button => {
+      button.addEventListener('click', function () {
+        alert('Redirecting to Riot RSO login (demo)...');
+        document.querySelector('.user-menu').style.display = 'block';
+      });
+    });
+
+    // Check if the page is loaded with a hash fragment
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.location.hash) {
+        const element = document.querySelector(window.location.hash);
+        if (element) {
+          element.scrollIntoView();
+        }
+      }
     });
   </script>
 </body>
