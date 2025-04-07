@@ -36,7 +36,11 @@ The app will allow users to securely log in with their Riot account and visualiz
 
 ## 🖼️ Prototype Preview
 
-> A UI mockup will be added soon to demonstrate the planned interface and user experience.
+### Application Architecture
+![Application Architecture](Archi.png)
+
+### Dashboard Mockup
+![Dashboard Mockup](Mockup.png)
 
 ---
 
@@ -44,4 +48,3 @@ The app will allow users to securely log in with their Riot account and visualiz
 
 This project is under development and not affiliated with Riot Games.  
 All data is retrieved via the official Riot Games API under their developer terms.
-
