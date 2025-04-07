@@ -39,7 +39,7 @@
       align-items: center;
       justify-content: center;
       padding: 60px 20px;
-      max-width: 500px;
+      max-width: 600px;
       margin: 40px auto;
       background-color: #1a1a1d;
       border-radius: 10px;
@@ -53,7 +53,7 @@
     
     .login-header h2 {
       color: #f94f6d;
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 15px;
     }
     
@@ -62,6 +62,7 @@
       line-height: 1.6;
       margin-bottom: 30px;
       text-align: center;
+      font-size: 1.1rem;
     }
     
     .riot-login-button {
@@ -91,26 +92,16 @@
     
     /* Project Showcase Section */
     .showcase-container {
-      max-width: 1000px;
-      margin: 0 auto 40px;
+      max-width: 1200px;
+      margin: 40px auto;
       padding: 0 20px;
     }
     
-    .showcase-heading {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    
-    .showcase-heading h2 {
-      color: #f94f6d;
-      font-size: 2rem;
-      margin-bottom: 15px;
-    }
-    
-    .showcase-grid {
+    .showcase-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 30px;
+      margin-bottom: 60px;
     }
     
     .showcase-item {
@@ -119,8 +110,6 @@
       overflow: hidden;
       box-shadow: 0 0 20px rgba(255, 0, 76, 0.2);
       transition: transform 0.3s;
-      display: flex;
-      flex-direction: column;
     }
     
     .showcase-item:hover {
@@ -135,21 +124,22 @@
     }
     
     .showcase-content {
-      padding: 20px;
+      padding: 25px;
       text-align: center;
     }
     
-    .showcase-content h3 {
+    .showcase-content h2 {
       color: #f94f6d;
       margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 1.5rem;
+      margin-bottom: 15px;
+      font-size: 2rem;
     }
     
     .showcase-content p {
       color: #cccccc;
       line-height: 1.6;
       margin: 0;
+      font-size: 1.1rem;
     }
     
     /* Dashboard Section (Hidden initially) */
@@ -280,6 +270,10 @@
     
     /* Responsive */
     @media (max-width: 800px) {
+      .showcase-row {
+        grid-template-columns: 1fr;
+      }
+      
       .dashboard-panels {
         grid-template-columns: 1fr;
       }
@@ -307,10 +301,6 @@
       .sidebar-menu li.active {
         border-left: none;
         border-bottom: 3px solid #f94f6d;
-      }
-      
-      .showcase-grid {
-        grid-template-columns: 1fr;
       }
     }
     
@@ -341,22 +331,18 @@
   
   <!-- Project Showcase Section -->
   <div class="showcase-container">
-    <div class="showcase-heading">
-      <h2>Project Overview</h2>
-      <p>Valorant Stats Analyzer helps you track and improve your gameplay with detailed statistics and visualizations.</p>
-    </div>
-    <div class="showcase-grid">
+    <div class="showcase-row">
       <div class="showcase-item">
         <img src="Mockup.png" alt="Dashboard Mockup">
         <div class="showcase-content">
-          <h3>Dashboard Preview</h3>
+          <h2>Dashboard Preview</h2>
           <p>A preview of our dashboard interface where you can analyze your Valorant performance stats.</p>
         </div>
       </div>
       <div class="showcase-item">
         <img src="Archi.png" alt="System Architecture">
         <div class="showcase-content">
-          <h3>System Architecture</h3>
+          <h2>System Architecture</h2>
           <p>Our application uses Riot's RSO authentication and API to securely fetch and display your game data.</p>
         </div>
       </div>
