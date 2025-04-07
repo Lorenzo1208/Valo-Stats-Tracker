@@ -12,104 +12,368 @@
       color: #ffffff;
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    /* Navbar */
+    .navbar {
+      background-color: #1a1a1d;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      padding: 40px 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
-
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    h1 {
+    
+    .logo {
       color: #f94f6d;
-      font-size: 2.8rem;
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-decoration: none;
     }
-
-    p.description {
-      max-width: 800px;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin: 20px 0;
-      color: #cccccc;
-    }
-
-    section {
-      max-width: 900px;
-      width: 100%;
-      background: #1a1a1d;
+    
+    /* Login Section */
+    .login-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      max-width: 500px;
+      margin: 40px auto;
+      background-color: #1a1a1d;
       border-radius: 10px;
-      padding: 30px;
       box-shadow: 0 0 20px rgba(255, 0, 76, 0.2);
-      margin-bottom: 40px;
     }
-
-    h2 {
+    
+    .login-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .login-header h2 {
       color: #f94f6d;
-      border-bottom: 1px solid #444;
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    
+    .login-description {
+      color: #cccccc;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    
+    .riot-login-button {
+      background-color: #f94f6d;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.3s;
+    }
+    
+    .riot-login-button:hover {
+      background-color: #e43b59;
+    }
+    
+    .riot-logo {
+      margin-right: 10px;
+      width: 24px;
+      height: 24px;
+      background-color: white;
+      border-radius: 50%;
+    }
+    
+    /* Dashboard Section (Hidden initially) */
+    .dashboard-container {
+      display: none; /* Change to flex when logged in */
+      flex-direction: column;
+      flex: 1;
+    }
+    
+    .dashboard-content {
+      display: flex;
+      flex: 1;
+    }
+    
+    /* Sidebar */
+    .sidebar {
+      width: 200px;
+      background-color: #1a1a1d;
+      padding: 20px 0;
+    }
+    
+    .sidebar-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .sidebar-menu li {
+      padding: 15px 20px;
+      border-left: 3px solid transparent;
+    }
+    
+    .sidebar-menu li.active {
+      background-color: #252529;
+      border-left: 3px solid #f94f6d;
+    }
+    
+    .sidebar-menu li:hover {
+      background-color: #252529;
+      cursor: pointer;
+    }
+    
+    .sidebar-menu a {
+      color: #cccccc;
+      text-decoration: none;
+      display: block;
+      transition: color 0.3s;
+    }
+    
+    .sidebar-menu a:hover, .sidebar-menu li.active a {
+      color: #ffffff;
+    }
+    
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding: 30px;
+      background-color: #0e0e10;
+    }
+    
+    .dashboard-header {
+      margin-bottom: 30px;
+    }
+    
+    .dashboard-header h1 {
+      color: #f94f6d;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    
+    .dashboard-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .metric-card {
+      background-color: #1a1a1d;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .metric-title {
+      color: #cccccc;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+    
+    .metric-value {
+      color: #ffffff;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    
+    .dashboard-panels {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+    
+    .panel {
+      background-color: #1a1a1d;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .panel h2 {
+      color: #f94f6d;
+      font-size: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #333;
       padding-bottom: 10px;
     }
-
-    ul {
-      margin-top: 20px;
-      line-height: 1.8;
-    }
-
+    
+    /* Footer */
     footer {
-      margin-top: 50px;
+      background-color: #1a1a1d;
+      text-align: center;
+      padding: 20px;
       font-size: 0.9rem;
       color: #888;
     }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
+    
+    /* Responsive */
+    @media (max-width: 800px) {
+      .dashboard-panels {
+        grid-template-columns: 1fr;
       }
-
-      p.description {
-        font-size: 1rem;
+      
+      .sidebar {
+        width: 100%;
+        padding: 10px 0;
+      }
+      
+      .dashboard-content {
+        flex-direction: column;
+      }
+      
+      .sidebar-menu {
+        display: flex;
+        overflow-x: auto;
+      }
+      
+      .sidebar-menu li {
+        padding: 10px 15px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+      }
+      
+      .sidebar-menu li.active {
+        border-left: none;
+        border-bottom: 3px solid #f94f6d;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .dashboard-metrics {
+        grid-template-columns: 1fr;
+      }
+      
+      .login-container {
+        padding: 30px 20px;
+      }
+      
+      .login-header h2 {
+        font-size: 1.6rem;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Valorant Stats Analyzer</h1>
-    <p class="description">
-      Valorant Stats Analyzer is an upcoming web application designed to help players understand and improve their gameplay
-      by analyzing personal match data securely via Riot's official API and RSO (Riot Sign-On).
-    </p>
-  </header>
-
-  <section>
-    <h2>📊 Key Features (Planned)</h2>
-    <ul>
-      <li>Detailed match history with agent, map, KDA, score</li>
-      <li>Death heatmaps per map to visualize weak points</li>
-      <li>Performance graphs per agent, role and time period</li>
-      <li>Player login with Riot RSO to protect and secure personal data</li>
-      <li>Insights and progression tracking based on aggregated match stats</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>🌍 For the Community</h2>
-    <p class="description">
-      This app is built for all Valorant players. Our goal is to provide a clean, insightful platform to help players track
-      their performance and make informed decisions to grow and improve.
-    </p>
-  </section>
-
-  <section>
-    <h2>🚧 Current Status</h2>
-    <p class="description">
-      We are currently working on the prototype and backend logic. The authentication flow with RSO is planned, and we aim to
-      make a beta version available to the public soon.
-    </p>
-  </section>
-
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="#" class="logo">Valorant Stats Analyzer</a>
+    <div class="user-menu" style="display:none;">
+      <!-- Visible après connexion -->
+      <span>USERNAME</span>
+    </div>
+  </div>
+  
+  <!-- Login Section (visible by default) -->
+  <div class="login-container">
+    <div class="login-header">
+      <h2>Connectez-vous avec Riot</h2>
+      <p class="login-description">
+        Connectez-vous avec votre compte Riot Games pour accéder à vos statistiques personnelles de Valorant. Nous utilisons Riot Sign-On (RSO) pour une connexion sécurisée.
+      </p>
+    </div>
+    <button class="riot-login-button">
+      <div class="riot-logo">R</div>
+      Se connecter avec Riot
+    </button>
+  </div>
+  
+  <!-- Dashboard Container (hidden by default) -->
+  <div class="dashboard-container">
+    <div class="dashboard-content">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <ul class="sidebar-menu">
+          <li class="active"><a href="#">Dashboard</a></li>
+          <li><a href="#">Match History</a></li>
+          <li><a href="#">Agents</a></li>
+          <li><a href="#">Maps</a></li>
+          <li><a href="#">Heatmaps</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </div>
+      
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="dashboard-header">
+          <h1>Dashboard</h1>
+          <p>Bienvenue sur votre dashboard Valorant Stats Analyzer. Voici un aperçu de vos performances.</p>
+        </div>
+        
+        <!-- Metrics Cards -->
+        <div class="dashboard-metrics">
+          <div class="metric-card">
+            <div class="metric-title">KD RATIO</div>
+            <div class="metric-value">0.00</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">WIN RATE</div>
+            <div class="metric-value">0%</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">HEADSHOT %</div>
+            <div class="metric-value">0%</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">GAMES PLAYED</div>
+            <div class="metric-value">0</div>
+          </div>
+        </div>
+        
+        <!-- Dashboard Panels -->
+        <div class="dashboard-panels">
+          <!-- Match History Panel -->
+          <div class="panel">
+            <h2>Recent Matches</h2>
+            <div class="match-list">
+              <!-- Match entries will be populated here -->
+              <p>Connectez-vous pour voir votre historique de matchs</p>
+            </div>
+          </div>
+          
+          <!-- Top Agents Panel -->
+          <div class="panel">
+            <h2>Top Agents</h2>
+            <div class="agents-list">
+              <!-- Agent statistics will be populated here -->
+              <p>Connectez-vous pour voir vos statistiques par agent</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Map Performance Panel -->
+        <div class="panel">
+          <h2>Map Performance</h2>
+          <div class="map-performance">
+            <!-- Map statistics will be populated here -->
+            <p>Connectez-vous pour voir vos performances par carte</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
   <footer>
     &copy; 2025 - Valorant Stats Analyzer | Not affiliated with Riot Games
   </footer>
+  
+  <!-- Script for demo - In real implementation, you would integrate with Riot API -->
+  <script>
+    // Toggle between login and dashboard for demonstration
+    document.querySelector('.riot-login-button').addEventListener('click', function() {
+      document.querySelector('.login-container').style.display = 'none';
+      document.querySelector('.dashboard-container').style.display = 'flex';
+      document.querySelector('.user-menu').style.display = 'block';
+    });
+  </script>
 </body>
 </html>
