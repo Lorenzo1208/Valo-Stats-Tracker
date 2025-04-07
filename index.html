@@ -91,7 +91,7 @@
     
     /* Project Showcase Section */
     .showcase-container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto 40px;
       padding: 0 20px;
     }
@@ -109,7 +109,7 @@
     
     .showcase-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 30px;
     }
     
@@ -119,6 +119,8 @@
       overflow: hidden;
       box-shadow: 0 0 20px rgba(255, 0, 76, 0.2);
       transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
     }
     
     .showcase-item:hover {
@@ -127,12 +129,14 @@
     
     .showcase-item img {
       width: 100%;
+      max-width: 100%;
       height: auto;
       display: block;
     }
     
     .showcase-content {
       padding: 20px;
+      text-align: center;
     }
     
     .showcase-content h3 {
@@ -304,6 +308,10 @@
         border-left: none;
         border-bottom: 3px solid #f94f6d;
       }
+      
+      .showcase-grid {
+        grid-template-columns: 1fr;
+      }
     }
     
     @media (max-width: 600px) {
@@ -333,10 +341,6 @@
   
   <!-- Project Showcase Section -->
   <div class="showcase-container">
-    <div class="showcase-heading">
-      <h2>Project Overview</h2>
-      <p>Valorant Stats Analyzer helps you track and improve your gameplay with detailed statistics and visualizations.</p>
-    </div>
     <div class="showcase-grid">
       <div class="showcase-item">
         <img src="Mockup.png" alt="Dashboard Mockup">
