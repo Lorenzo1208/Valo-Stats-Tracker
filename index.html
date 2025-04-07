@@ -32,40 +32,6 @@
       text-decoration: none;
     }
     
-    /* Heatmap Section */
-    .heatmap-container {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-    
-    .heatmap-title {
-      color: #f94f6d;
-      font-size: 2rem;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-    
-    .heatmap-subtitle {
-      color: #cccccc;
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    
-    .heatmap-wrapper {
-      background-color: #0f1621;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 0 30px rgba(255, 0, 76, 0.3);
-      margin-bottom: 30px;
-    }
-    
-    .heatmap-wrapper img {
-      width: 100%;
-      display: block;
-    }
-    
     /* Login Section */
     .login-container {
       display: flex;
@@ -128,6 +94,17 @@
       max-width: 1000px;
       margin: 0 auto 40px;
       padding: 0 20px;
+    }
+    
+    .showcase-heading {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .showcase-heading h2 {
+      color: #f94f6d;
+      font-size: 2rem;
+      margin-bottom: 15px;
     }
     
     .showcase-grid {
@@ -362,15 +339,6 @@
     </div>
   </div>
   
-  <!-- Heatmap Section - Impressive visualization at the top -->
-  <div class="heatmap-container">
-    <h2 class="heatmap-title">VISUALIZE YOUR GAMEPLAY PATTERNS</h2>
-    <p class="heatmap-subtitle">Identify your most vulnerable positions and improve your gameplay with our advanced heatmaps</p>
-    <div class="heatmap-wrapper">
-      <img src="death-heatmap.svg" alt="Valorant Death Heatmap">
-    </div>
-  </div>
-  
   <!-- Project Showcase Section -->
   <div class="showcase-container">
     <div class="showcase-grid">
@@ -491,7 +459,6 @@
     document.querySelector('.riot-login-button').addEventListener('click', function() {
       document.querySelector('.login-container').style.display = 'none';
       document.querySelector('.showcase-container').style.display = 'none';
-      document.querySelector('.heatmap-container').style.display = 'none';
       document.querySelector('.dashboard-container').style.display = 'flex';
       document.querySelector('.user-menu').style.display = 'block';
     });
