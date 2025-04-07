@@ -89,69 +89,6 @@
       border-radius: 50%;
     }
     
-    /* Project Showcase Section */
-    .showcase-container {
-      max-width: 1000px;
-      margin: 0 auto 40px;
-      padding: 0 20px;
-    }
-    
-    .showcase-heading {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    
-    .showcase-heading h2 {
-      color: #f94f6d;
-      font-size: 2rem;
-      margin-bottom: 15px;
-    }
-    
-    .showcase-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-    }
-    
-    .showcase-item {
-      background-color: #1a1a1d;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(255, 0, 76, 0.2);
-      transition: transform 0.3s;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .showcase-item:hover {
-      transform: translateY(-5px);
-    }
-    
-    .showcase-item img {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-    
-    .showcase-content {
-      padding: 20px;
-      text-align: center;
-    }
-    
-    .showcase-content h3 {
-      color: #f94f6d;
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 1.5rem;
-    }
-    
-    .showcase-content p {
-      color: #cccccc;
-      line-height: 1.6;
-      margin: 0;
-    }
-    
     /* Dashboard Section (Hidden initially) */
     .dashboard-container {
       display: none; /* Change to flex when logged in */
@@ -308,10 +245,6 @@
         border-left: none;
         border-bottom: 3px solid #f94f6d;
       }
-      
-      .showcase-grid {
-        grid-template-columns: 1fr;
-      }
     }
     
     @media (max-width: 600px) {
@@ -336,26 +269,6 @@
     <div class="user-menu" style="display:none;">
       <!-- Visible après connexion -->
       <span>USERNAME</span>
-    </div>
-  </div>
-  
-  <!-- Project Showcase Section -->
-  <div class="showcase-container">
-    <div class="showcase-grid">
-      <div class="showcase-item">
-        <img src="Mockup.png" alt="Dashboard Mockup">
-        <div class="showcase-content">
-          <h3>Dashboard Preview</h3>
-          <p>A preview of our dashboard interface where you can analyze your Valorant performance stats.</p>
-        </div>
-      </div>
-      <div class="showcase-item">
-        <img src="Archi.png" alt="System Architecture">
-        <div class="showcase-content">
-          <h3>System Architecture</h3>
-          <p>Our application uses Riot's RSO authentication and API to securely fetch and display your game data.</p>
-        </div>
-      </div>
     </div>
   </div>
   
@@ -458,7 +371,6 @@
     // Toggle between login and dashboard for demonstration
     document.querySelector('.riot-login-button').addEventListener('click', function() {
       document.querySelector('.login-container').style.display = 'none';
-      document.querySelector('.showcase-container').style.display = 'none';
       document.querySelector('.dashboard-container').style.display = 'flex';
       document.querySelector('.user-menu').style.display = 'block';
     });
