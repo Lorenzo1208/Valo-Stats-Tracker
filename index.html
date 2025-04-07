@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Valorant Personal Stats Tracker</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e10;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      color: #f94f6d;
+      font-size: 2.8rem;
+    }
+
+    p.description {
+      max-width: 800px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: 20px 0;
+      color: #cccccc;
+    }
+
+    section {
+      max-width: 900px;
+      width: 100%;
+      background: #1a1a1d;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(255, 0, 76, 0.2);
+    }
+
+    h2 {
+      color: #f94f6d;
+      border-bottom: 1px solid #444;
+      padding-bottom: 10px;
+    }
+
+    ul {
+      margin-top: 20px;
+      line-height: 1.8;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p.description {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Valorant Personal Stats Tracker</h1>
+    <p class="description">
+      This project is a personal application designed to analyze my own performance in Valorant using Riot's official API.
+      It helps track my statistics, visualize match data, and gain insights into my playstyle.
+    </p>
+  </header>
+
+  <section>
+    <h2>🔎 Key Features</h2>
+    <ul>
+      <li>Track kills, deaths, agents, and maps played per match</li>
+      <li>Visualize positions where I most frequently die on each map</li>
+      <li>Detect performance trends across agents and roles</li>
+      <li>Use Riot's RSO OAuth2 to securely authenticate and access my personal match history</li>
+    </ul>
+  </section>
+
+  <section style="margin-top: 40px;">
+    <h2>🔒 Privacy & Access</h2>
+    <p class="description">
+      This tool is for personal use only. It will never be shared publicly or provide access to other players’ data.
+      The app is developed locally and used solely to improve my understanding of my own gameplay.
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2025 - Valorant Stats Tracker | Not affiliated with Riot Games
+  </footer>
+</body>
+</html>
