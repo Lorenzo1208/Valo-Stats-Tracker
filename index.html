@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Valorant Personal Stats Tracker</title>
+  <title>Valorant Stats Analyzer</title>
   <style>
     body {
       margin: 0;
@@ -15,17 +15,19 @@
       align-items: center;
       padding: 40px 20px;
     }
-
     header {
       text-align: center;
       margin-bottom: 40px;
     }
-
     h1 {
       color: #f94f6d;
       font-size: 2.8rem;
+      text-shadow: 0 0 10px rgba(249, 79, 109, 0.6);
+      transition: text-shadow 0.3s ease;
     }
-
+    h1:hover {
+      text-shadow: 0 0 15px rgba(249, 79, 109, 0.9);
+    }
     p.description {
       max-width: 800px;
       font-size: 1.1rem;
@@ -33,7 +35,6 @@
       margin: 20px 0;
       color: #cccccc;
     }
-
     section {
       max-width: 900px;
       width: 100%;
@@ -41,30 +42,105 @@
       border-radius: 10px;
       padding: 30px;
       box-shadow: 0 0 20px rgba(255, 0, 76, 0.2);
+      margin-bottom: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 25px rgba(255, 0, 76, 0.3);
+    }
     h2 {
       color: #f94f6d;
       border-bottom: 1px solid #444;
       padding-bottom: 10px;
+      display: flex;
+      align-items: center;
     }
-
-    ul {
+    .feature-list {
       margin-top: 20px;
       line-height: 1.8;
     }
-
+    .feature-list li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 30px;
+    }
+    .feature-list li::before {
+      content: "•";
+      color: #f94f6d;
+      font-size: 1.5rem;
+      position: absolute;
+      left: 10px;
+    }
+    .status-list {
+      margin-top: 20px;
+      line-height: 1.8;
+    }
+    .status-list li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+    }
+    .status-list li span {
+      margin-right: 10px;
+    }
+    .steps-list {
+      margin-top: 20px;
+      line-height: 1.8;
+      counter-reset: steps;
+    }
+    .steps-list li {
+      margin-bottom: 15px;
+      position: relative;
+      padding-left: 30px;
+    }
+    .steps-list li::before {
+      counter-increment: steps;
+      content: counter(steps) ".";
+      color: #f94f6d;
+      position: absolute;
+      left: 5px;
+      font-weight: bold;
+    }
     footer {
-      margin-top: 50px;
+      margin-top: 30px;
       font-size: 0.9rem;
       color: #888;
+      text-align: center;
+      padding: 20px;
+      width: 100%;
+      max-width: 900px;
     }
-
+    .btn {
+      display: inline-block;
+      background: #f94f6d;
+      color: white;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-top: 20px;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn:hover {
+      background: #ff3056;
+      transform: scale(1.05);
+    }
+    .coming-soon {
+      background: #1a1a1d;
+      border: 2px dashed #444;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .coming-soon h3 {
+      color: #f94f6d;
+    }
     @media (max-width: 600px) {
       h1 {
         font-size: 2rem;
       }
-
       p.description {
         font-size: 1rem;
       }
@@ -73,33 +149,79 @@
 </head>
 <body>
   <header>
-    <h1>Valorant Personal Stats Tracker</h1>
+    <h1>Valorant Stats Analyzer</h1>
     <p class="description">
-      This project is a personal application designed to analyze my own performance in Valorant using Riot's official API.
-      It helps track my statistics, visualize match data, and gain insights into my playstyle.
+      A web-based application designed to help players analyze their personal performance in Valorant using Riot's official APIs and RSO (Riot Sign-On) authentication.
+      Track your progress, identify patterns in your gameplay, and improve over time.
     </p>
   </header>
 
   <section>
-    <h2>🔎 Key Features</h2>
-    <ul>
-      <li>Track kills, deaths, agents, and maps played per match</li>
-      <li>Visualize positions where I most frequently die on each map</li>
-      <li>Detect performance trends across agents and roles</li>
-      <li>Use Riot's RSO OAuth2 to securely authenticate and access my personal match history</li>
+    <h2>🔍 Features (Planned)</h2>
+    <ul class="feature-list">
+      <li><strong>📊 Match History Viewer</strong> – Display full details of recent matches (agents, map, score, kills/deaths, etc.)</li>
+      <li><strong>💀 Death Heatmaps</strong> – See where you tend to die on each map</li>
+      <li><strong>🧠 Performance Insights</strong> – Detect which agents you perform best with</li>
+      <li><strong>📈 Trend Analysis</strong> – Track evolution of key stats over time</li>
+      <li><strong>🗂️ Secure Authentication</strong> – Use Riot's RSO OAuth2 to protect player data and ensure privacy</li>
     </ul>
   </section>
 
-  <section style="margin-top: 40px;">
-    <h2>🔒 Privacy & Access</h2>
+  <section>
+    <h2>🔐 How it works</h2>
+    <ol class="steps-list">
+      <li>Players authenticate via Riot's RSO (OAuth2)</li>
+      <li>The app retrieves the player's PUUID securely</li>
+      <li>Using <code>VAL-MATCH-V1</code> and related endpoints, we fetch match history</li>
+      <li>Data is visualized in charts, tables, and on interactive maps</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>🚧 Project Status</h2>
+    <ul class="status-list">
+      <li><span>✅</span> GitHub Pages demo site published</li>
+      <li><span>⚙️</span> Currently building the backend logic</li>
+      <li><span>📌</span> Match parsing and data visualization in progress</li>
+      <li><span>📍</span> OAuth2 integration with Riot RSO planned for public testing</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🖼️ Prototype Preview</h2>
+    <div class="coming-soon">
+      <h3>Coming Soon</h3>
+      <p>A UI mockup will be added soon to demonstrate the planned interface and user experience.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>⚠️ Disclaimer</h2>
     <p class="description">
-      This tool is for personal use only. It will never be shared publicly or provide access to other players’ data.
-      The app is developed locally and used solely to improve my understanding of my own gameplay.
+      This project is under development and not affiliated with Riot Games.<br>
+      All data is retrieved via the official Riot Games API under their developer terms.
     </p>
   </section>
 
   <footer>
-    &copy; 2025 - Valorant Stats Tracker | Not affiliated with Riot Games
+    &copy; 2025 - Valorant Stats Analyzer | Not affiliated with Riot Games
   </footer>
+
+  <script>
+    // Simple animation for elements on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('section');
+      sections.forEach((section, index) => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        
+        setTimeout(() => {
+          section.style.opacity = '1';
+          section.style.transform = 'translateY(0)';
+        }, 100 * (index + 1));
+      });
+    });
+  </script>
 </body>
 </html>
